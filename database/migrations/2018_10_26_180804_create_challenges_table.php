@@ -15,10 +15,10 @@ class CreateChallengesTable extends Migration
     {
         Schema::create('challenges', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('starts_at');
-            $table->date('ends_at');
             $table->string('Name');
             $table->integer('points');
+            $table->date('starts_at');
+            $table->date('ends_at');
         });
     }
 
