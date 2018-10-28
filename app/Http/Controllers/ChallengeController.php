@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use App\Challenge;
 use Carbon\Carbon;
+Use Auth;
 
 class ChallengeController extends Controller
 {
