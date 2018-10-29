@@ -33,7 +33,7 @@ class ChallengeController extends Controller
         ]);
 
         $startingDate = Carbon::parse($request->starts_at);
-        $endingDate = $startingDate->addDays(30);
+        $endingDate = $startingDate->addDays($request->days);
 
         Challenge::create([
             'name' => $request->name,
@@ -43,9 +43,8 @@ class ChallengeController extends Controller
         ]);
 
         $challenges = Challenge::all();
-        return view('challenges.index', [
-            'challenges' => $challenges
-        ]);
+
+        return redirect()->route('challenges.index');
 
     }
 
