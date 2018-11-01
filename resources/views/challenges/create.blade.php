@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('content')
 <form method="POST" action="/challenges">
     @csrf
     <body class ="bg-grey-lighter h-screen font-sans">
@@ -60,3 +61,4 @@
         </div>
     </body>
 </form>
+@endsection
