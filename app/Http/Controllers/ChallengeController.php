@@ -11,6 +11,7 @@ class ChallengeController extends Controller
 {
     public function index()
     {
+        dd(Auth::user());
        $challenges = Challenge::all();
 
        return view('challenges.index', [
