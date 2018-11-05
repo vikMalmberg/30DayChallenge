@@ -39,7 +39,10 @@
                          focus:outline-none focus:shadow-outline" type="submit">
             Sign In
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+          <a class="inline-block align-baseline
+                    font-bold text-sm text-blue
+                    hover:text-blue-darker"
+                href="#">
             Forgot Password?
           </a>
         </div>
