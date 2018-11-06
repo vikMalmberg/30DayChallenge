@@ -2,9 +2,38 @@
 
 
 @section('content')
-<ul>
-    @foreach($challenges as $challenge)
-        <li> {{ $challenge->name }} </li>
-    @endforeach
-</ul>
+
+<h1 class="font-hairline mb-6 text-center font-sans">Challenges</h1>
+<div class="container  w-2/3 mx-auto border-teal rounded-lg shadow-lg">
+    <table class="topbar w-full">
+        <tr class="mb-4 bg-grey-lighter h-10 text-grey-dark font-sans">
+            <th class="text-center pl-4 pr-4 font-medium">NAME</th>
+            <th class="text-center pl-4 pr-4 font-medium">POINTS</th>
+            <th class="text-center pl-4 pr-4 font-medium">DURATION</th>
+            <th class="text-center pl-4 pr-4 font-medium">CREATOR</th>
+            <th class="text-center pl-4 pr-4 font-medium"></th>
+        </tr>
+        @foreach($challenges as $challenge)
+            <tr>
+                <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">{{ $challenge->name }}</td>
+                <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">{{ $challenge->points }}</td>
+                <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">tempDATE</td>
+                <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">tempCreator</td>
+                <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">
+                    <a href="#">
+                        <button class="bg-green-lighter
+                                        text-green-dark font-bold py-2
+                                        px-4 rounded-full
+                                        font-hairline">
+                            Sign up
+                         </button>
+                     </a>
+                </td>
+            </tr>
+        @endforeach
+    </table>
+</div>
+
+
+
 @endsection
