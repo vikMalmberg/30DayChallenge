@@ -17,7 +17,7 @@
                         focus:shadow-outline"
                 id="Email"
                 type="Email"
-                name="Email"
+                name="email"
                 />
 
         </div>

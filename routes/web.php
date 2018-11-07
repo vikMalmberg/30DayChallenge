@@ -16,6 +16,8 @@ Route::get('/challenges/create', 'challengeController@create')->name('challenges
 Route::post('/challenges', 'challengeController@store')->name('challenges.store');
 Route::get('/challenges/{challenge}', 'challengeController@show')->name('challenges.show');
 
+Route::get('/personal/challenges', 'PersonalChallengeController@index')->name('personal.challenges.index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
