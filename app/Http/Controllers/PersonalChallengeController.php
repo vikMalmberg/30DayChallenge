@@ -17,6 +17,7 @@ class PersonalChallengeController extends Controller
     public function __construct(PersonalChallengeManager $manager)
     {
         $this->manager = $manager;
+        $this->middleware('auth');
     }
 
     public function index()
