@@ -10,13 +10,13 @@ class PersonalChallengeManager
     {
         foreach ($challenges as $challenge) {
             $startMinusCompleted = $challenge->daysSinceStart()-$challenge->pivot->days_completed;
-            if($startMinusCompleted == 1 ){
+            if ($startMinusCompleted == 1 ) {
                 $challenge->status = "available";
             }
-            if($startMinusCompleted == 0 ){
+            if ($startMinusCompleted == 0 ) {
                 $challenge->status = "checked_in";
             }
-            if($startMinusCompleted > 1 ){
+            if ($startMinusCompleted > 1 ) {
                 $challenge->status = "failed";
             }
         }
