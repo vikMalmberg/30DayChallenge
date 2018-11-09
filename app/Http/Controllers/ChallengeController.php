@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Challenge;
-use Carbon\Carbon;
-Use Auth;
+use Auth;
+use App\Traits\HandlesChallenges;
 
 class ChallengeController extends Controller
 {
-
+    use HandlesChallenges;
     public function __construct()
     {
         $this->middleware('auth')->except('index');
@@ -24,34 +24,24 @@ class ChallengeController extends Controller
         ]);
     }
 
-    public function create()
+    public function crea§te()
     {
         return view('challenges.create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $challenge = $request->validate([
             'name' => 'required',
             'points' => 'required',
             'days' => 'required',
             'starts_at' => 'required'
         ]);
 
-        $startingDate = Carbon::parse($request->starts_at);
-        $endingDate = $startingDate->addDays($request->days);
-
-        Challenge::create([
-            'name' => $request->name,
-            'points' => $request->points,
-            'starts_at' => $request->starts_at,
-            'ends_at' => $endingDate,
-        ]);
-
-        $challenges = Challenge::all();
+        $challenge = $this->transformDaysToEndingDate($challenge);
+        Challenge::create($challenge);
 
         return redirect()->route('challenges.index');
-
     }
 
     public function show(Challenge $challenge)
