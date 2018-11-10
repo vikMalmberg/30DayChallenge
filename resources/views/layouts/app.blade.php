@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="bg-grey-lighter">
         <nav class="flex items-center justify-between flex-wrap bg-teal p-6">
           <div class="block lg:hidden">
             <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
@@ -45,7 +45,7 @@
           </div>
         </nav>
     <div id="app">
-        <main class="py-4">
+        <main class="py-4 ">
             @yield('content')
         </main>
     </div>
