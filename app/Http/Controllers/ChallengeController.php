@@ -10,6 +10,7 @@ use App\Traits\HandlesChallenges;
 class ChallengeController extends Controller
 {
     use HandlesChallenges;
+
     public function __construct()
     {
         $this->middleware('auth')->except('index');
@@ -24,7 +25,7 @@ class ChallengeController extends Controller
         ]);
     }
 
-    public function crea§te()
+    public function create()
     {
         return view('challenges.create');
     }

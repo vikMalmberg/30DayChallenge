@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/challenges', 'challengeController@index')->name('challenges.index');
-Route::get('/challenges/create', 'challengeController@create')->name('challenges.create');
-Route::post('/challenges', 'challengeController@store')->name('challenges.store');
-Route::get('/challenges/{challenge}', 'challengeController@show')->name('challenges.show');
+Route::get('/challenges', 'ChallengeController@index')->name('challenges.index');
+Route::get('/challenges/create', 'ChallengeController@create')->name('challenges.create');
+Route::post('/challenges', 'ChallengeController@store')->name('challenges.store');
+Route::get('/challenges/{challenge}', 'ChallengeController@show')->name('challenges.show');
 
 Route::get('/personal/challenges', 'PersonalChallengeController@index')->name('personal.challenges.index');
 
 Auth::routes();
-
+Route::get('/logout', 'LogOutController@update')->name('logout.update');
 Route::get('/home', 'HomeController@index')->name('home');
