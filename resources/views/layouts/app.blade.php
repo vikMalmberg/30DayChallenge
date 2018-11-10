@@ -29,6 +29,11 @@
           </div>
           <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
+              @if(Auth::user())
+              <a href="{{route('personal.challenges.index')}}" class="block mt-4 lg:inline-block no-underline lg:mt-0 text-teal-lighter hover:text-white mr-4">
+                My Challenges
+              </a>
+              @endif
               <a href="{{route('challenges.index')}}" class="block mt-4 lg:inline-block no-underline lg:mt-0 text-teal-lighter hover:text-white mr-4">
                 Challenges
               </a>
