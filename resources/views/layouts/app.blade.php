@@ -43,7 +43,7 @@
             </div>
             @if(!Auth::user())
             <div>
-              <a href="/login" class="inline-block text-sm px-4 py-2 leading-none border rounded no-underline text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4  lg:mt-0">Login</a>
+              <a href="/login" class="inline-block text-sm px-4 py-2 leading-none border rounded no-underline text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4  lg:mt-0">Sign in</a>
             </div>
             <div>
               <a href="/register" class="inline-block text-sm px-4 py-2 leading-none border rounded no-underline text-white border-white hover:border-transparent hover:text-teal hover:bg-white ml-4 mt-4 lg:mt-0">Register</a>
