@@ -29,5 +29,15 @@ class PersonalChallengeController extends Controller
             'challenges' => $challenges
         ]);
     }
+    public function store()
+    {
+
+        $challenge = Challenge::find(request('challenge_id'));
+
+        $challenge->users()->attach(Auth::user()->id);
+
+        return redirect()->route('challenges.index');
+
+    }
 
 }

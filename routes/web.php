@@ -17,6 +17,7 @@ Route::post('/challenges', 'ChallengeController@store')->name('challenges.store'
 Route::get('/challenges/{challenge}', 'ChallengeController@show')->name('challenges.show');
 
 Route::get('/personal/challenges', 'PersonalChallengeController@index')->name('personal.challenges.index');
+Route::post('/personal/challenges', 'PersonalChallengeController@store')->name('personal.challenges.store');
 
 Auth::routes();
 Route::get('/logout', 'LogOutController@update')->name('logout.update');
