@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Auth;
 
 class Challenge extends Model
 {
@@ -14,7 +15,7 @@ class Challenge extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('failed','days_completed');
     }
 
     public function duration()
@@ -29,6 +30,14 @@ class Challenge extends Model
         $starts_at = Carbon::parse($this->starts_at);
 
         return $starts_at->diffInDays(Carbon::now())+1;
+    }
+
+    public function updateChallenge($challenge)
+    {
+        $user = ($challenge->users()
+                     ->where('id',Auth::user()->id)->first());
+        $user->pivot->days_completed+=1;
+        $user->pivot->save();
     }
 
 }

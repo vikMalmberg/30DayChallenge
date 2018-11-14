@@ -40,4 +40,10 @@ class PersonalChallengeController extends Controller
 
     }
 
+    public function update(Challenge $challenge)
+    {
+        $challenge->updateChallenge($challenge);
+        return redirect()->route('personal.challenges.index');
+    }
+
 }
