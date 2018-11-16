@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 Use App\Challenge;
 use Auth;
 use App\Traits\HandlesChallenges;
+use Carbon\Carbon;
 
 class ChallengeController extends Controller
 {
@@ -18,7 +19,11 @@ class ChallengeController extends Controller
 
     public function index()
     {
-       $challenges = Challenge::all();
+       $challenges = Challenge::all()
+            ->reject(function($challenge){
+                $startingDate = Carbon::parse($challenge->starts_at);
+                return $startingDate->isPast();
+       });
 
        return view('challenges.index', [
         'challenges' => $challenges
