@@ -45,8 +45,8 @@ class Challenge extends Model
         if(!Auth::check())
             return false;
 
-        $usersForChallengeOne = $this->users()->get();
-        foreach($usersForChallengeOne as $user) {
+        $usersForChallenge = $this->users()->get();
+        foreach($usersForChallenge as $user) {
             if($user->id == Auth::user()->id){
                 return true;
             }
