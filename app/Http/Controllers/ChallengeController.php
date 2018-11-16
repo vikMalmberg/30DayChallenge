@@ -7,6 +7,7 @@ Use App\Challenge;
 use Auth;
 use App\Traits\HandlesChallenges;
 use Carbon\Carbon;
+use App\User;
 
 class ChallengeController extends Controller
 {

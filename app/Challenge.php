@@ -40,4 +40,14 @@ class Challenge extends Model
         $user->pivot->save();
     }
 
+    public function ActiveForSignedInUser()
+    {
+        $usersForChallengeOne = $this->users()->get();
+        foreach($usersForChallengeOne as $user) {
+            if($user->id == Auth::user()->id){
+                return true;
+            }
+            return false;
+        }
+    }
 }
