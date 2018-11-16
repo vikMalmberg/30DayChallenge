@@ -42,6 +42,9 @@ class Challenge extends Model
 
     public function ActiveForSignedInUser()
     {
+        if(!Auth::check())
+            return false;
+
         $usersForChallengeOne = $this->users()->get();
         foreach($usersForChallengeOne as $user) {
             if($user->id == Auth::user()->id){

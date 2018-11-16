@@ -17,7 +17,7 @@
                 <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">{{ $challenge->name }}</td>
                 <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">{{ $challenge->points }}</td>
                 <td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">{{ $challenge->duration() }} days</td>
-                @if(!$challenge->ActiveForSignedInUser() && Auth::check())
+                @if(!$challenge->ActiveForSignedInUser())
                     @include("challenges.partials.inactive_challenge")
                 @else
                     @include('challenges.partials.active_challenge')
