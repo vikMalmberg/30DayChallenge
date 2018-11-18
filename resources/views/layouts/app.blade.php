@@ -22,9 +22,9 @@
 </head>
 <body class="bg-grey-lighter">
     @if(Auth::check())
-    @include("layouts.partials.navbar_signedIn")
+        @include("layouts.partials.navbar_signedIn")
     @elseif(!Auth::check())
-    @include("layouts.partials.navbar_signedOut")
+        @include("layouts.partials.navbar_signedOut")
     @endif
     <div id="app">
         <main class="py-4 ">
