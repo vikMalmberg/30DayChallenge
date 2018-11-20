@@ -39,6 +39,7 @@ class CheckFailedChallengesCommand extends Command
      */
     public function handle()
     {
+        echo"checking which challenges are failed \n";
         $challenges = Challenge::all();
         foreach ($challenges as $challenge){
             $challengeStartsAt = Carbon::parse($challenge->starts_at);
@@ -46,6 +47,8 @@ class CheckFailedChallengesCommand extends Command
                 $today = Carbon::now();
                 $daysSinceChallengeStarted = $challengeStartsAt->diffInDays($today,false);
                 if ( ($user->pivot->days_completed - $daysSinceChallengeStarted) <= 1) {
+                    echo "user : $user->username failed challenge : $challenge->name";
+                    echo "\n";
                     $user->pivot->failed = 1;
                     $user->pivot->save();
                 }
