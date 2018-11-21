@@ -8,6 +8,7 @@ use Auth;
 use App\Traits\HandlesChallenges;
 use Carbon\Carbon;
 use App\User;
+use DateTime;
 
 class ChallengeController extends Controller
 {
@@ -20,12 +21,9 @@ class ChallengeController extends Controller
 
     public function index()
     {
-       $challenges = Challenge::all()
-            ->reject(function($challenge){
-                $startingDate = Carbon::parse($challenge->starts_at);
-                return $startingDate->isPast();
-       });
 
+        $today = date("Y-m-d");
+        $challenges = Challenge::where('starts_at', '>=', $today)->paginate(10);
        return view('challenges.index', [
         'challenges' => $challenges
         ]);

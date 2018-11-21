@@ -2,7 +2,7 @@
 
 
 @section('content')
-
+{{ $challenges->links() }}
 <h1 class="font-hairline mb-6 text-center font-sans">All Challenges</h1>
 <div class="container  w-2/3 mx-auto border-teal rounded-lg shadow-lg">
     <table class="topbar w-full">
@@ -26,7 +26,4 @@
         @endforeach
     </table>
 </div>
-
-
-
 @endsection
