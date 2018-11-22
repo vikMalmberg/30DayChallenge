@@ -1,4 +1,4 @@
-<td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">
+<td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2 border-b-2">
     <form
     action="{{ route('personal.challenges.store')}}"
     method="POST"

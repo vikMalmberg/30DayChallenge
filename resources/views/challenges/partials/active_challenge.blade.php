@@ -1,4 +1,4 @@
-<td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">
+<td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2 border-b-2">
         <button class="bg-red-lighter
                         text-red-dark font-bold py-2
                         px-4 rounded-full
