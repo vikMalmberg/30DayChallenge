@@ -15,7 +15,7 @@ class Challenge extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('failed','days_completed');
+        return $this->belongsToMany(User::class)->withPivot('failed','days_completed','completed');
     }
 
     public function duration()
