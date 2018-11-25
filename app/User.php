@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function challenges()
     {
-        return $this->belongsToMany(Challenge::class)->withPivot('failed','days_completed');
+        return $this->belongsToMany(Challenge::class)->withPivot('failed','days_completed','completed');
     }
 }
