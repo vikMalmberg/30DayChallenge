@@ -26,6 +26,10 @@ class PersonalChallengeManager
                 $challenge->status = "failed";
                 continue;
             }
+            if ($startMinusCompleted < 0 ) {
+                $challenge->status = "unstarted";
+                continue;
+            }
         }
         return $challenges;
     }
