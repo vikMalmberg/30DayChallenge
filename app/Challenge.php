@@ -29,7 +29,7 @@ class Challenge extends Model
     {
         $starts_at = Carbon::parse($this->starts_at);
 
-        return $starts_at->diffInDays(Carbon::now())+1;
+        return $starts_at->diffInDays(Carbon::now());
     }
 
     public function updateChallenge($challenge)

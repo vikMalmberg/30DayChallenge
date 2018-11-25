@@ -10,7 +10,6 @@ class PersonalChallengeManager
     {
         foreach ($challenges as $challenge) {
             $startMinusCompleted = $challenge->daysSinceStart()-$challenge->pivot->days_completed;
-
             if($challenge->pivot->completed){
                 $challenge->status = "completed";
                 continue;
