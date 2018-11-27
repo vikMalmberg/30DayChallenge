@@ -29,20 +29,20 @@ class Challenge extends Model
     {
         $starts_at = Carbon::parse($this->starts_at);
 
-        return $starts_at->diffInDays(Carbon::now(),false)+1;
+        return $starts_at->diffInDays(Carbon::now(),false);
     }
 
     public function updateChallenge($challenge)
     {
         $starts_at = Carbon::parse($this->starts_at);
         $ends_at = Carbon::parse($this->ends_at);
-        $diffInDays = $starts_at->diffInDays($ends_at,false);
+        $daysToComplete = $starts_at->diffInDays($ends_at,false)+1;
 
         $user = ($challenge->users()
                      ->where('id',Auth::user()->id)->first());
         $user->pivot->days_completed += 1;
 
-        if ($user->pivot->days_completed == $diffInDays) {
+        if ($user->pivot->days_completed == $daysToComplete) {
             $user->pivot->completed = 1;
         }
         $user->pivot->save();

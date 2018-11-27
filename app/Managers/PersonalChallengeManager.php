@@ -14,19 +14,19 @@ class PersonalChallengeManager
                 $challenge->status = "completed";
                 continue;
             }
-            if ($startMinusCompleted == 1 ) {
+            if ($startMinusCompleted == 0 ) {
                 $challenge->status = "available";
                 continue;
             }
-            if ($startMinusCompleted == 0 ) {
+            if ($startMinusCompleted == -1 ) {
                 $challenge->status = "checked_in";
                 continue;
             }
-            if ($startMinusCompleted > 1 ) {
+            if ($startMinusCompleted >= 1 ) {
                 $challenge->status = "failed";
                 continue;
             }
-            if ($startMinusCompleted < 0 ) {
+            if ($startMinusCompleted <= 0 ) {
                 $challenge->status = "unstarted";
                 continue;
             }
