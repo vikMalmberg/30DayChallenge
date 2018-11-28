@@ -5,7 +5,7 @@
     <body class ="bg-grey-lighter h-screen font-sans">
         <div class="container mx-auto h-80 flex justify-center items-center">
             <div class="w-1/3">
-                <h1 class="font-hairline mb-6 text-center">Create a challenge</h1>
+                <h1 class="font-hairline mb-6 text-center font-sans">Create a challenge</h1>
                 <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
                     <div class="mb-4">
                         <label class="font-bold text-grey-darker block mb-2">Challenge name</label>
