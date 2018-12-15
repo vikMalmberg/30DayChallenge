@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
         Schema::create('challenge_user', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('challenge_id');
-            $table->boolean('failed')->default(false);
+            $table->date('failed_at')->nullable()->default(null);
             $table->boolean('completed')->default(false);
             $table->integer('days_completed')->default(0);
             $table->primary(['user_id', 'challenge_id']);
