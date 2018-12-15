@@ -46,6 +46,13 @@ class Challenge extends Model
             'challenge_id' => $user->pivot->challenge_id,
         ]);
 
+        $days_completed = CheckIn::where('user_id', $user->id)
+                        ->where('challenge_id', $challenge->id)
+                        ->count();
+        if($days_completed == $daysToComplete) {
+            $user->pivot->completed = 1;
+            $user->pivot->save();
+        }
     }
 
     public function ActiveForSignedInUser()
