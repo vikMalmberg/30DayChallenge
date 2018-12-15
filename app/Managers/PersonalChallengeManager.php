@@ -20,8 +20,8 @@ class PersonalChallengeManager
                                     ->count();
             $challengeStartDate = Carbon::parse($challenge->starts_at);
 
-            // $startMinusCompleted = $challenge->daysSinceStart()-$days_completed;
             $daysToCompleteToNotFail = $challenge->daysSinceStart();
+
             if ($challengeStartDate->isFuture()) {
                 $challenge->status = "unstarted";
                 continue;
