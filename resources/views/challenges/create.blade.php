@@ -19,17 +19,6 @@
                         >
                     </div>
                     <div class="mb-2">
-                        <label class="font-bold text-grey-darker block mb-2">Points</label>
-                        <input
-                        name="points"
-                        type="number"
-                        class="block appearance-none w-full bg-white
-                               border border-grey-light
-                               hover:border-grey px-2 py-2 rounded shadow"
-                        value = "{{ old('points')  ?? ''}}"
-                        >
-                    </div>
-                    <div class="mb-2">
                         <label class="font-bold text-grey-darker block mb-2">Days</label>
                         <input
                         name="days"

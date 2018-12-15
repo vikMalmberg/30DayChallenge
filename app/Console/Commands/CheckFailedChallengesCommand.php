@@ -49,7 +49,7 @@ class CheckFailedChallengesCommand extends Command
                 if ( ($user->pivot->days_completed - $daysSinceChallengeStarted) <= 1) {
                     echo "user : $user->username failed challenge : $challenge->name";
                     echo "\n";
-                    $user->pivot->failed = 1;
+                    $user->pivot->failed_at != null;
                     $user->pivot->save();
                 }
             }
