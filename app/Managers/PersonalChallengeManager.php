@@ -2,6 +2,10 @@
 
 
 namespace App\Managers;
+use App\CheckIn;
+use Auth;
+use Carbon\Carbon;
+
 
 class PersonalChallengeManager
 {
@@ -9,27 +13,47 @@ class PersonalChallengeManager
     public function setStatus($challenges)
     {
         foreach ($challenges as $challenge) {
-            $startMinusCompleted = $challenge->daysSinceStart()-$challenge->pivot->days_completed;
-            if($challenge->pivot->completed){
-                $challenge->status = "completed";
-                continue;
-            }
-            if ($startMinusCompleted == 0 ) {
-                $challenge->status = "available";
-                continue;
-            }
-            if ($startMinusCompleted == -1 ) {
-                $challenge->status = "checked_in";
-                continue;
-            }
-            if ($startMinusCompleted >= 1 ) {
-                $challenge->status = "failed";
-                continue;
-            }
-            if ($startMinusCompleted <= 0 ) {
+            $user = Auth::user();
+
+            $days_completed = CheckIn::where('user_id', $user->id)
+                                    ->where('challenge_id', $challenge->id)
+                                    ->count();
+            $challengeStartDate = Carbon::parse($challenge->starts_at);
+
+            // $startMinusCompleted = $challenge->daysSinceStart()-$days_completed;
+            $daysToCompleteToNotFail = $challenge->daysSinceStart();
+            if ($challengeStartDate->isFuture()) {
                 $challenge->status = "unstarted";
                 continue;
             }
+
+            if ($challenge->pivot->completed){
+                $challenge->status = "completed";
+                continue;
+            }
+
+            if ($challenge->pivot->failed_at != null) {
+                $challenge->status = "failed";
+                continue;
+            }
+
+            if ($daysToCompleteToNotFail < $days_completed) {
+                $challenge->status = "checked_in";
+                continue;
+            }
+
+            if ($daysToCompleteToNotFail == $days_completed ) {
+                $challenge->status = "available";
+                continue;
+            }
+
+
+
+
+
+
+
+
         }
         return $challenges;
     }

@@ -15,7 +15,7 @@ class Challenge extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('failed_at','days_completed','completed');
+        return $this->belongsToMany(User::class)->withPivot('failed_at','completed');
     }
 
     public function duration()
@@ -40,12 +40,7 @@ class Challenge extends Model
 
         $user = ($challenge->users()
                      ->where('id',Auth::user()->id)->first());
-        $user->pivot->days_completed += 1;
 
-        if ($user->pivot->days_completed == $daysToComplete) {
-            $user->pivot->completed = 1;
-        }
-        $user->pivot->save();
         Checkin::create([
             'user_id' => $user->id,
             'challenge_id' => $user->pivot->challenge_id,

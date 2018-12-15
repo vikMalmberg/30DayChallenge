@@ -71,7 +71,7 @@ class CheckFailedChallengesCommand extends Command
                     if ($checkins == $daysToComplete) {
                         $user->pivot->completed = true;
                         $user->pivot->save();
-                        echo("user: " . $user->id . " failed completed: " .$user->pivot->challenge_id ."\n");
+                        echo("user: " . $user->id . " completed challenge: " .$user->pivot->challenge_id ."\n");
                     }
                 }
             }

@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->integer('challenge_id');
             $table->date('failed_at')->nullable()->default(null);
             $table->boolean('completed')->default(false);
-            $table->integer('days_completed')->default(0);
             $table->primary(['user_id', 'challenge_id']);
 
         });
