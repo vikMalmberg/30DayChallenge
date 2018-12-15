@@ -21,18 +21,6 @@
                         >
                     </div>
                     <div class="mb-2">
-                        <label class="font-bold text-grey-darker block mb-2">Points</label>
-                        <input
-                        disabled
-                        name="points"
-                        type="number"
-                        class="block appearance-none w-full bg-white
-                               border border-grey-light
-                               hover:border-grey px-2 py-2 rounded shadow"
-                        value = "{{ $challenge->points }}"
-                        >
-                    </div>
-                    <div class="mb-2">
                         <label class="font-bold text-grey-darker block mb-2">Starting date</label>
                         <input
                         disabled
