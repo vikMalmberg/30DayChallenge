@@ -13,7 +13,7 @@ class CreateCheckInTable extends Migration
      */
     public function up()
     {
-        Schema::create('CheckIns', function (Blueprint $table) {
+        Schema::create('check_ins', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('challenge_id');

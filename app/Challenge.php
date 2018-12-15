@@ -46,6 +46,11 @@ class Challenge extends Model
             $user->pivot->completed = 1;
         }
         $user->pivot->save();
+        Checkin::create([
+            'user_id' => $user->id,
+            'challenge_id' => $user->pivot->challenge_id,
+        ]);
+
     }
 
     public function ActiveForSignedInUser()
