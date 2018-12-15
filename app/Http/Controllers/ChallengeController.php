@@ -39,7 +39,8 @@ class ChallengeController extends Controller
         $challenge = $request->validate([
             'name' => 'required',
             'duration' => 'required',
-            'starts_at' => 'required'
+            'starts_at' => 'required',
+            'type' => 'required',
         ]);
 
         $challenge = $this->transformDurationToEndingDate($challenge);
