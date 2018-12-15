@@ -38,11 +38,11 @@ class ChallengeController extends Controller
     {
         $challenge = $request->validate([
             'name' => 'required',
-            'days' => 'required',
+            'duration' => 'required',
             'starts_at' => 'required'
         ]);
 
-        $challenge = $this->transformDaysToEndingDate($challenge);
+        $challenge = $this->transformDurationToEndingDate($challenge);
 
         Challenge::create($challenge);
 

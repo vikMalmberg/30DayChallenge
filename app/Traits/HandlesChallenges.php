@@ -6,13 +6,12 @@ use Carbon\Carbon;
 
 trait HandlesChallenges
 {
-    public function transformDaysToEndingDate($challenge)
+    public function transformDurationToEndingDate($challenge)
     {
         $startingDate = Carbon::parse($challenge['starts_at']);
-        $endingDate = $startingDate->addDays($challenge['days']);
-        $challenge['ends_at'] = $endingDate;
-
-        unset($challenge['days']);
+        $addDuration = 'add'.$challenge['duration'];
+        $challenge['ends_at'] = $startingDate->$addDuration();
+        unset($challenge['duration']);
 
         return $challenge;
     }

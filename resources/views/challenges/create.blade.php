@@ -19,15 +19,14 @@
                         >
                     </div>
                     <div class="mb-2">
-                        <label class="font-bold text-grey-darker block mb-2">Days</label>
-                        <input
-                        name="days"
-                        type="number"
-                        class="block appearance-none w-full bg-white
+                        <label class="font-bold text-grey-darker block mb-2">Duration</label>
+                        <select class=" mb-4 block  w-full bg-white
                                border border-grey-light
-                               hover:border-grey px-2 py-2 rounded shadow"
-                        value = "{{ old('days')  ?? ''}}"
-                        >
+                               hover:border-grey px-2 py-2 rounded shadow" name="duration">
+                            <option value="Week">Week</option>
+                            <option value="Month">Month</option>
+                            <option value="Year">Year</option>
+                        </select>
                     </div>
                     <div>
                         <label class="font-bold text-grey-darker block mb-2">Starting date</label>
