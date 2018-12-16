@@ -29,21 +29,21 @@
                     <div v-if="selectedType == 2" class="mb-2">
                         <label class="font-bold text-grey-darker block mb-2">Days</label>
                         <div class=" flex justify-center">
-                            <input class="ml-1 " type="checkbox" name="day_of_week[]" value="1">
+                            <input class="ml-1 " type="checkbox" name="days_of_week[]" value="1">
                             <label class="text-xs ml-1 mr-1">Monday</label>
-                            <input class="text-xs " type="checkbox" name="day_of_week[]" value="2">
+                            <input class="text-xs " type="checkbox" name="days_of_week[]" value="2">
                             <label class="text-xs ml-1 mr-1">Tuesday</label>
-                            <input class="text-xs " type="checkbox" name="day_of_week[]" value="3">
+                            <input class="text-xs " type="checkbox" name="days_of_week[]" value="3">
                             <label class="text-xs ml-1 mr-1">Wednesday</label>
-                            <input class="text-xs " type="checkbox" name="day_of_week[]" value="4">
+                            <input class="text-xs " type="checkbox" name="days_of_week[]" value="4">
                             <label class="text-xs ml-1 mr-1">Thursday</label>
                         </div>
                         <div class ="mt-4 flex justify-center">
-                            <input type="checkbox" name="day_of_week[]" value="5">
+                            <input type="checkbox" name="days_of_week[]" value="5">
                             <label class="text-xs ml-1 mr-1">Friday</label>
-                            <input type="checkbox" name="day_of_week[]" value="6">
+                            <input type="checkbox" name="days_of_week[]" value="6">
                             <label class="text-xs ml-1 mr-1">Saturday</label>
-                            <input type="checkbox" name="day_of_week[]" value="7">
+                            <input type="checkbox" name="days_of_week[]" value="7">
                             <label class="text-xs ml-1 mr-1">Sunday</label>
                         </div>
                     </div>

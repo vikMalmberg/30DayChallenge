@@ -36,12 +36,15 @@ class ChallengeController extends Controller
 
     public function store(Request $request)
     {
+
         $challenge = $request->validate([
             'name' => 'required',
             'duration' => 'required',
             'starts_at' => 'required',
             'type' => 'required',
+            'days_of_week' => '',
         ]);
+        $challenge['days_of_week'] = json_encode($challenge['days_of_week']);
 
         $challenge = $this->transformDurationToEndingDate($challenge);
 
