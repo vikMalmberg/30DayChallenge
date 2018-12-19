@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Traits\HandlesChallenges;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HandlesChallenges;
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +31,8 @@ class User extends Authenticatable
 
     public function challenges()
     {
-        return $this->belongsToMany(Challenge::class)->withPivot('failed_at','completed');
+        return $this->getChallengesForUser($this);
+
     }
+
 }

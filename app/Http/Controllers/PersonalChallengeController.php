@@ -22,7 +22,10 @@ class PersonalChallengeController extends Controller
 
     public function index()
     {
-        $challenges = User::where('id',Auth::user()->id)->first()->challenges;
+        $challenges = User::where('id',Auth::user()->id)
+                                ->first()
+                                ->challenges();
+
         $challenges = $this->manager->setStatus($challenges);
 
            return view('personalChallenges.index', [
