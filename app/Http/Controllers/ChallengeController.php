@@ -44,7 +44,10 @@ class ChallengeController extends Controller
             'type' => 'required',
             'days_of_week' => '',
         ]);
-        $challenge['days_of_week'] = json_encode($challenge['days_of_week']);
+
+        if (isset($challenge['days_of_week'])) {
+            $challenge['days_of_week'] = json_encode($challenge['days_of_week']);
+        }
 
         $challenge = $this->transformDurationToEndingDate($challenge);
 
