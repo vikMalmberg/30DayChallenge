@@ -23,6 +23,9 @@ class CheckFailedChallengesCommand extends Command
      */
     protected $description = 'Command description';
 
+
+    public $test = true;
+
     /**
      * Create a new command instance.
      *
@@ -40,10 +43,9 @@ class CheckFailedChallengesCommand extends Command
      */
     public function handle()
     {
-        // echo"checking which challenges are failed \n";
-        $challenges = Challenge::with('users')->get();
-        // echo($challenges);
 
+        $challenges = Challenge::with('users')->get();
+        $test = false;
         foreach($challenges as $challenge) {
 
             $challengeStartsAt = Carbon::parse($challenge->starts_at);
@@ -59,14 +61,27 @@ class CheckFailedChallengesCommand extends Command
 
                 //if this challenge_user isnt failed or completed make a check if it should be
                 if ($user->pivot->failed_at == null && $user->pivot->completed == false) {
-                    // check the amouunt of checkins of this user & this challenge in checkins table
-                    $checkins = CheckIn::where('user_id', $user->id)
+                    if ($challenge->type === 2 ) {
+                        if (in_array($today->dayOfWeekIso, json_decode($challenge->days_of_week))) {
+                            $checkIn = CheckIn::where('user_id', $user->id)
                                     ->where('challenge_id', $challenge->id)
-                                    ->count();
-                    if ($daysSinceChallengeStarted >= $checkins) {
-                        $user->pivot->failed_at = $today;
-                        $user->pivot->save();
-                        echo("user: " . $user->id . " failed challenge: " .$user->pivot->challenge_id ."\n");
+                                    ->where('created_at', '=', $today )
+                                    ->get();
+                            if ($checkIn->isEmpty()) {
+                                $user->pivot->failed_at = $today;
+                                $user->pivot->save();
+                            }
+                        }
+                    } else {
+                        // check the amouunt of checkins of this user & this challenge in checkins table
+                        $checkins = CheckIn::where('user_id', $user->id)
+                                        ->where('challenge_id', $challenge->id)
+                                        ->count();
+                        if ($daysSinceChallengeStarted >= $checkins) {
+                            $user->pivot->failed_at = $today;
+                            $user->pivot->save();
+                            echo("user: " . $user->id . " failed challenge: " .$user->pivot->challenge_id ."\n");
+                        }
                     }
                 }
             }
