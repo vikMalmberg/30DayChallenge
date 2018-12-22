@@ -24,7 +24,6 @@ class CheckFailedChallengesCommand extends Command
     protected $description = 'Command description';
 
 
-    public $test = true;
 
     /**
      * Create a new command instance.
@@ -45,7 +44,6 @@ class CheckFailedChallengesCommand extends Command
     {
 
         $challenges = Challenge::with('users')->get();
-        $test = false;
         foreach($challenges as $challenge) {
 
             $challengeStartsAt = Carbon::parse($challenge->starts_at);
