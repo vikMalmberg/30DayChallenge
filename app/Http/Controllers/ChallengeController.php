@@ -22,7 +22,7 @@ class ChallengeController extends Controller
     public function index()
     {
 
-        $today = date("Y-m-d");
+        $today = Carbon::today();
         $challenges = Challenge::where('starts_at', '>=', $today)->paginate(10);
        return view('challenges.index', [
         'challenges' => $challenges

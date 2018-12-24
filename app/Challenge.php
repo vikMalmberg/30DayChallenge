@@ -44,6 +44,7 @@ class Challenge extends Model
         Checkin::create([
             'user_id' => $user->id,
             'challenge_id' => $user->pivot->challenge_id,
+            'created_at' => Carbon::today(),
         ]);
 
         $days_completed = CheckIn::where('user_id', $user->id)
