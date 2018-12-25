@@ -125,8 +125,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'days_of_week' => [
+            'required_if' => 'If you select specific days you have to select days too ... ',
         ],
     ],
 
