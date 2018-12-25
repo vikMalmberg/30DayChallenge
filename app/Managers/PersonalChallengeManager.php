@@ -47,7 +47,7 @@ class PersonalChallengeManager
                 continue;
             }
 
-
+            $challenge->status = "failed";
 
 
 
