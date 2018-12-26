@@ -53,7 +53,7 @@ class ChallengeController extends Controller
 
         Challenge::create($challenge);
 
-        return redirect()->route('challenges.index');
+        return redirect()->route('challenges.index')->with('message', 'Successfully created challenge');
     }
 
     public function show(Challenge $challenge)
