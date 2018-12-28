@@ -40,12 +40,12 @@ class UpdateStreaks extends Command
      */
     public function handle()
     {
-        $today = Carbon::today();
-        // $challenges = Challenge::with('users')->get();
         $users = User::with('challenges')->get();
         foreach($users as $user) {
             $streak = 0;
-            $unfailedChallengesForThisUser = $user->challenges()->where('failed_at', null)->get();
+            $unfailedChallengesForThisUser = $user->challenges()
+                                            ->where('failed_at', null)
+                                            ->get();
 
             foreach($unfailedChallengesForThisUser as $unfailedChallenge) {
                 $daysSinceStart = Carbon::parse($unfailedChallenge->starts_at)
@@ -56,32 +56,6 @@ class UpdateStreaks extends Command
             }
             $user->streak = $streak;
             $user->save();
-
-            dd($streak);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //     foreach($challenges as $challenge) {
-    //         $usersOnThisChallenge = $challenge->users;
-    //         foreach($usersOnThisChallenge as $user) {
-    //             dd($user);
-    //         }
-    //     }
-    // }
 }
