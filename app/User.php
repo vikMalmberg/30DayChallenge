@@ -31,8 +31,8 @@ class User extends Authenticatable
 
     public function challenges()
     {
-        return $this->getChallengesForUser($this);
-
+        // return $this->getChallengesForUser($this);
+        return $this->belongsToMany(Challenge::class)->withPivot('failed_at','completed');
     }
 
 }

@@ -24,8 +24,8 @@ class PersonalChallengeController extends Controller
     {
         $challenges = User::where('id',Auth::user()->id)
                                 ->first()
-                                ->challenges();
-
+                                ->challenges()
+                                ->get();
         $challenges = $this->manager->setStatus($challenges);
 
            return view('personalChallenges.index', [

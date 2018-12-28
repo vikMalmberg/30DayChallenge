@@ -16,7 +16,7 @@ class CheckFailedChallengesCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'failedChallenges:check';
+    protected $signature = 'challenges:CheckFailedChallenges';
 
     /**
      * The console command description.
