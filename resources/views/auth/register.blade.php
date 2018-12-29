@@ -35,11 +35,11 @@
                 />
 
         </div>
-        <div class="mb-4">
+        <div class="mb-2">
           <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
             Password
           </label>
-          <input class="shadow appearance-none border border-red rounded w-full py-2
+          <input class="shadow appearance-none border w-full py-2
                         px-3 text-grey-darker mb-3 leading-tight
                         focus:outline-none focus:shadow-outline"
                 id="password"
@@ -50,14 +50,13 @@
           <label class="block text-grey-darker text-sm font-bold mb-2" for="confirm_password">
             Confirm password
           </label>
-          <input class="shadow appearance-none border border-red rounded w-full py-2
+          <input class="shadow appearance-none border w-full py-2
                         px-3 text-grey-darker mb-3 leading-tight
                         focus:outline-none focus:shadow-outline"
                 id="confirm_password"
                 type="password"
                 name="password_confirmation"
                 required  >
-          <p class="text-red text-xs italic">Please confirm your password.</p>
         </div>
         <div class="flex items-center justify-between">
           <button class="bg-blue hover:bg-blue-dark
