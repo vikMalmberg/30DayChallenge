@@ -8,16 +8,16 @@
       <form action="{{ route('login') }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         @csrf
         <div class="mb-4">
-          <label class="block text-grey-darker text-sm font-bold mb-2" for="Email">
-            Email
+          <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+            Username
           </label>
           <input class="shadow appearance-none border rounded w-full py-2
                         px-3 text-grey-darker leading-tight
                         focus:outline-none
                         focus:shadow-outline"
-                id="Email"
-                type="Email"
-                name="email"
+                id="username"
+                type="username"
+                name="username"
                 />
 
         </div>
