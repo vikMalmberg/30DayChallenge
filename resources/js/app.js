@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('create-challenge-component', require('./components/CreateChallengeComponent.vue'));
 Vue.component('error-component', require('./components/ErrorComponent.vue'));
+Vue.component('success-message-component', require('./components/SuccessMessageComponent.vue'));
 
 const app = new Vue({
     el: '#app'
