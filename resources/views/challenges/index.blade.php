@@ -3,8 +3,7 @@
 
 @section('content')
 
-{{-- @if (session('message')) --}}
-@if (1==1)
+@if (session('message'))
     <success-message-component
         :successmsg="'{{ session('message') }}'"
         >
