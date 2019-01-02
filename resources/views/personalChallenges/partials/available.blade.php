@@ -1,10 +1,14 @@
-<td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">
+<div class="">
     <a href="{{ route('personal.challenges.update',$id)}}">
         <button class="bg-yellow-lighter
-                        text-yellow-dark font-bold py-2
-                        px-4 rounded-full
-                        font-hairline">
-            Check in
+                    hover:bg-yellow
+                    text-yellow-darker
+                    font-bold
+                    py-2
+                    mt-4
+                    rounded-full
+                    w-32">
+            Check-in
          </button>
-     </a>
-</td>
+    </a>
+</div>

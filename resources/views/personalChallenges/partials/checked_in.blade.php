@@ -1,10 +1,12 @@
-<td class="text-center pl-4 pr-4 pt-2 pb-2 border-t-2">
-    <a href="#">
-        <button class="bg-green-lighter
-                        text-green-dark font-bold py-2
-                        px-4 rounded-full
-                        font-hairline">
-            checkedin
-         </button>
-     </a>
-</td>
+<div class="">
+    <button disabled class="bg-green-lighter
+                hover:bg-green-light
+                text-green-darker
+                font-bold
+                py-2
+                mt-4
+                rounded-full
+                w-32">
+        Checked in
+     </button>
+</div>
