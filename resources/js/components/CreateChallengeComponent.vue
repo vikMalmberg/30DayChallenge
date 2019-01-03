@@ -16,6 +16,16 @@
                         >
                     </div>
                     <div class="mb-4">
+                        <label class="font-bold text-grey-darker block mb-2">Description</label>
+                        <textarea
+                        name="description"
+                        rows="6"
+                        class="block appearance-none w-full bg-white
+                                border border-grey-light
+                                hover:border-grey px-2 py-2 rounded shadow"
+                        ></textarea>
+                    </div>
+                    <div class="mb-4">
                         <label class="font-bold text-grey-darker block mb-2">Select Challenge type</label>
                         <select v-model="selectedType" class=" mb-4 block  w-full bg-white
                                border border-grey-light

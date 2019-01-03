@@ -38,6 +38,7 @@ class ChallengeController extends Controller
     {
         $challenge = $request->validate([
             'name' => 'required',
+            'description' => '',
             'duration' => 'required',
             'starts_at' => 'required',
             'type' => 'required',
