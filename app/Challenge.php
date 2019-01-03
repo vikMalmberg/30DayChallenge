@@ -69,4 +69,26 @@ class Challenge extends Model
             return false;
         }
     }
+
+    public function WeekdaysToCheckIn()
+    {
+        if ($this->type == 2)  {
+            $weekdayNumbers = json_decode($this->days_of_week);
+            $weekdayNames= [];
+
+            foreach ($weekdayNumbers as $weekdayNumber) {
+                // jddayofweek counts weekdays differently than carbon
+                // so needs to be reduced by one to sync properly
+                $weekdayNames[] = jddayofweek($weekdayNumber-1, 2);
+            }
+            if ($weekdayNames == ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]) {
+                return ["Everyday"];
+            }
+            return $weekdayNames;
+        }
+        return ["Everyday"];
+
+
+    }
+
 }
