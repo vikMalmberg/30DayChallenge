@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($errors->any())
+  <div class="w-1/2 mx-auto h-80  justify-center items-center">
+      @foreach ($errors->all() as $error)
+        <error-component :errormsg="'{{$error}}'"></error-component>
+      @endforeach
+  </div>
+@endif
 <h1 class=" font-sans font-hairline mb-6 text-center">Sign Up </h1>
 <div class="container mx-auto h-full flex justify-center items-center">
     <div class="w-full max-w-xs">
