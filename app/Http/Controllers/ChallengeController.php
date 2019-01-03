@@ -40,8 +40,8 @@ class ChallengeController extends Controller
             'name' => 'required',
             'description' => '',
             'duration' => 'required',
-            'starts_at' => 'required',
-            'type' => 'required',
+            'starts_at' => 'required|date',
+            'type' => 'required|exists:challenge_types,id',
             'days_of_week' => 'required_if:type,2',
         ]);
 
