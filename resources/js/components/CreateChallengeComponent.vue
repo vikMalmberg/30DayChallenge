@@ -60,6 +60,7 @@
                     <div >
                         <label class="font-bold text-grey-darker block mb-2">Starting date</label>
                         <input
+                        v-model='this.Date'
                         name="starts_at"
                         type="date"
                         class="block appearance-none w-full bg-white
@@ -83,10 +84,9 @@
 <script>
 export default {
 
-
-
   data () {
     return {
+        'Date' : new Date().toISOString().slice(0,10),
         'thirtyDay': true,
         'selectedType' : "1",
 
