@@ -9,6 +9,26 @@
         >
     </success-message-component>
 @endif
+@if($challenges->isEmpty())
+    <div class="w-full flex flex-col pt-8 pb-8 ">
+        <h1 class="font-hairline text-center font-sans">There are no challenges currently available.</h1>
+    </div>
+    <div class="mx-auto w-full flex justify-center">
+        <img  src="{{url('/svg/nochallenges.svg')}}">
+    </div>
+        <h4 class="font-hairline text-center font-sans pt-4">Go and create one!</h4>
+        <div class="w-full text-center mt-8">
+            <a class="bg-teal-dark
+                        no-underline
+                        py-2
+                        px-8
+                        hover:bg-teal
+                        text-white
+                        font-bold
+                        rounded"
+            href="{{ route('challenges.create') }}">Create</a>
+        </div>
+@else
 
 <h1 class="font-hairline mb-6 text-center font-sans">All Challenges</h1>
 <div class="container  w-4/5 mx-auto border-teal rounded-lg shadow-lg">
@@ -41,4 +61,5 @@
     </div>
 {{ $challenges->links() }}
 </div>
+@endif
 @endsection
