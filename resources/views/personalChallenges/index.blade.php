@@ -10,6 +10,27 @@
     </success-message-component>
 @endif
 
+@if($challenges->isEmpty())
+    <div class="w-full flex flex-col pt-8 pb-8 ">
+        <h1 class="font-hairline text-center font-sans">You arent signed up for any challenges yet.</h1>
+    </div>
+    <div class="mx-auto w-full flex justify-center">
+        <img  src="{{url('/svg/gettowork.svg')}}">
+    </div>
+        <h4 class="font-hairline text-center font-sans pt-4">Sign up for a challenge and get to work!</h4>
+        <div class="w-full text-center mt-8">
+            <a class="bg-teal-dark
+                        no-underline
+                        py-2
+                        px-8
+                        hover:bg-teal
+                        text-white
+                        font-bold
+                        rounded"
+            href="{{ route('challenges.index') }}">Challenges</a>
+        </div>
+@else
+
 <h1 class="font-hairline mb-6 text-center font-sans">My Challenges</h1>
 <div class="container  w-4/5 mx-auto border-teal rounded-lg shadow-lg">
     <div class="topbar w-full ">
@@ -36,7 +57,7 @@
             </div>
         @endforeach
     </div>
-
+@endif
 
 
 @endsection
