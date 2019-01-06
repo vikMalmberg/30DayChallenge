@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Challenge;
+use App\Managers\ContributionColorManager;
 
 class ProfileController extends Controller
 {
 
+    protected $manager;
+
+    public function __construct(ContributionColorManager $manager)
+    {
+        $this->manager = $manager;
+    }
+
     public function index()
     {
+
         $completedChallengeCount = Auth::user()->challenges()
                                 ->where('completed', true)
                                 ->count();
@@ -24,11 +33,11 @@ class ProfileController extends Controller
                                 ->where('completed', false)
                                 ->count();
 
-
         return view('profile.index', [
             'completedChallengeCount' => $completedChallengeCount,
             'failedChallengeCount' => $failedChallengeCount,
-            'activeChallengeCount' => $activeChallengeCount
+            'activeChallengeCount' => $activeChallengeCount,
+            'contributionManager' => $this->manager,
             ]);
     }
 

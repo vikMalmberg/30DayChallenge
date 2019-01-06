@@ -48,10 +48,20 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
+</div>
+
+<div class="bg-red py-6 container w-2/5 mx-auto rounded-lg shadow-lg mt-16 font-hairline font-sans">
+    <div class="px-8">
+        @for($week = 0; $week <7; $week++)
+        <div class="flex pt-px">
+            @for($day = 0; $day < 52; $day++)
+                @include("contributions.partials.{$contributionManager->getColorOfDate($week + ($day*7))}")
+            @endfor
+        </div>
+        @endfor
+    </div>
 </div>
 
 @endsection
