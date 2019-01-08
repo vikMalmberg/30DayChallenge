@@ -2,52 +2,48 @@
 
 
 namespace App\Managers;
+
+use Illuminate\Support\Facades\Cache;
+use App\Traits\HandlesContributions;
 use App\CheckIn;
 use Auth;
-use Illuminate\Support\Facades\Cache;
 
 class ContributionColorManager
 {
+    use HandlesContributions;
 
-
-   public function getColorOfDate($day)
+    public function getColorOfDate($day)
     {
         $date = $this->getDateFromDayOfYear($day);
-        if (Cache::has($date)) {
-            return Cache::get($date);
-        } else {
-
+        if (! Cache::has('seeded')) {
             $userCheckins = CheckIn::where('user_id', Auth::user()->id)
                                 ->groupBy('created_at')
                                 ->selectRaw('count(*) as total, created_at')
                                 ->get();
-
-            $dateColors = [];
-            $userCheckins->each(function($userCheckin) use(&$dateColors) {
-                if($userCheckin->total >= 1) $dateColors[$userCheckin->created_at] = "low";
-                if($userCheckin->total > 2) $dateColors[$userCheckin->created_at] = "medium";
-                if($userCheckin->total > 3) $dateColors[$userCheckin->created_at] = "high";
-                if($userCheckin->total > 6) $dateColors[$userCheckin->created_at] = "extreme";
-            });
-
-            foreach ($dateColors as $day => $color) {
-                Cache::put($day, $color, 100);
+            foreach ($userCheckins as $userCheckin) {
+                $this->setLevelOfContribution(
+                                            $userCheckin->created_at,
+                                            $userCheckin->total
+                                    );
             }
-            if (Cache::has($date)) {
-                return Cache::get($date);
-            }
+            Cache::put('seeded', 1, 1000000);
+        }
 
-        return "none";
-
+        if (Cache::has($date)) {
+            return Cache::get($date);
+        } else {
+            return "none";
         }
     }
 
     private function getDateFromDayOfYear($dayOfYear)
     {
-            $day = intval( $dayOfYear );
-            $day = ( $day == 0 ) ? $day : $day - 1;
-            $offset = intval( intval( $dayOfYear ) * 86400 );
-            $date = date( 'Y-m-d', strtotime( 'Jan 1, ' . date( 'Y' ) ) + $offset );
-            return ($date);
+        $day = intval($dayOfYear);
+        $day = ($day == 0) ? $day : $day - 1;
+        $offset = intval(intval($dayOfYear) * 86400);
+        $date = date('Y-m-d', strtotime('Jan 1, ' . date('Y')) + $offset);
+        return ($date);
     }
+
 }
+

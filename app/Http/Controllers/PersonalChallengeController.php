@@ -45,7 +45,7 @@ class PersonalChallengeController extends Controller
 
     public function update(Challenge $challenge)
     {
-        $challenge->updateChallenge($challenge);
+        $challenge->checkIn($challenge);
         return redirect()->route('personal.challenges.index')->with('message', 'Successfully checked in');
     }
 

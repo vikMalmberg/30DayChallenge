@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use App\Traits\HandlesContributions;
 use Carbon\Carbon;
+use Date;
 use Auth;
 
 class Challenge extends Model
 {
+    use HandlesContributions;
 
     protected $guarded = [];
     protected $atttributes = ['status'];
@@ -32,7 +36,7 @@ class Challenge extends Model
         return $starts_at->diffInDays(Carbon::now(),false);
     }
 
-    public function updateChallenge($challenge)
+    public function CheckIn($challenge)
     {
         $starts_at = Carbon::parse($this->starts_at);
         $ends_at = Carbon::parse($this->ends_at);
@@ -54,6 +58,11 @@ class Challenge extends Model
             $user->pivot->completed = 1;
             $user->pivot->save();
         }
+        $userCheckins = CheckIn::where('user_id', Auth::user()->id)
+                    ->where('created_at', Carbon::today())
+                    ->count();
+
+        $this->setLevelOfContribution(date("Y-m-d"), $userCheckins);
     }
 
     public function ActiveForSignedInUser()
