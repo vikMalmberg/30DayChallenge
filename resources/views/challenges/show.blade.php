@@ -42,6 +42,18 @@
                         value = "{{ $challenge->ends_at }}"
                         >
                     </div>
+                    <div class="mb-2">
+                        <label class="font-bold text-grey-darker block mb-2">Days since start</label>
+                        <input
+                        disabled
+                        name="ends_at"
+                        type="text"
+                        class="block appearance-none w-full bg-white
+                               border border-grey-light
+                               hover:border-grey px-2 py-2 rounded shadow"
+                        value = "{{ $challenge->daysSinceStart() }}"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
