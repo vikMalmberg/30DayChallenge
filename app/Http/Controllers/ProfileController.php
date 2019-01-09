@@ -19,6 +19,9 @@ class ProfileController extends Controller
 
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
 
         $completedChallengeCount = Auth::user()->challenges()
                                 ->where('completed', true)
