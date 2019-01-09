@@ -23,6 +23,7 @@
                     <div class="mb-2">
                         <label class="font-bold text-grey-darker block mb-2">Description</label>
                         <textarea
+                        disabled
                         name="description"
                         rows="6"
                         class="block appearance-none w-full bg-white
