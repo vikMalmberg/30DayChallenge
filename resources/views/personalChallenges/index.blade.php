@@ -45,7 +45,9 @@
 
         @foreach($challenges as $challenge)
             <div class=" hover:bg-grey pb-16 h-12 flex justify-around border-t-2">
-                <div class="w-48 pt-6 pb-6 ">{{ $challenge->name }}</div>
+                <a href="/challenges/{{ $challenge->id }}" class ="no-underline text-teal-dark font-bold">
+                    <div class="w-48 pt-6 pb-6 ">{{ $challenge->name }}</div>
+                </a>
                 <div class="w-48 pt-6 pb-6 ">{{ $challenge->duration() }} days</div>
                 <div class="w-48 pt-6 pb-6 ">{{ $challenge->starts_at }}</div>
                 <div class="w-48 pt-6 pb-6">
