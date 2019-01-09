@@ -5,6 +5,7 @@
                     text-yellow-darker
                     font-bold
                     py-2
+                    focus:outline-none
                     mt-4
                     rounded-full
                     w-32">

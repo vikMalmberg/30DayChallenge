@@ -10,6 +10,7 @@
                         font-bold
                         py-2
                         mt-4
+                        focus:outline-none
                         rounded-full
                         w-32
          ">Sign up</button>
