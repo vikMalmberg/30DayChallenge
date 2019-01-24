@@ -18,6 +18,7 @@ class CreateCheckInTable extends Migration
             $table->integer('user_id');
             $table->integer('challenge_id');
             $table->date('created_at');
+            $table->unique(array('user_id', 'challenge_id', 'created_at'));
         });
     }
 
