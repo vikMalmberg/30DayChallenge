@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Carbon\CarbonPeriod;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,10 +64,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $period = CarbonPeriod::create('2019-01-01', '2019-12-31');
+        $dates;
+        foreach ($period as $date) {
+            $dates[$date->format('Y-m-d')] = 0;
+
+        }
+        $dates = json_encode($dates);
+
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'checkins' => $dates
         ]);
     }
 }
