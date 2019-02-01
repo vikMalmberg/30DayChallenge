@@ -36,13 +36,14 @@ class Challenge extends Model
         return $starts_at->diffInDays(Carbon::now(),false);
     }
 
-    public function CheckIn($challenge)
+    public function CheckIn()
     {
+
         $starts_at = Carbon::parse($this->starts_at);
         $ends_at = Carbon::parse($this->ends_at);
         $daysToComplete = $starts_at->diffInDays($ends_at,false)+1;
 
-        $user = ($challenge->users()
+        $user = ($this->users()
                      ->where('id',Auth::user()->id)->first());
 
         Checkin::create([
@@ -52,7 +53,7 @@ class Challenge extends Model
         ]);
 
         $days_completed = CheckIn::where('user_id', $user->id)
-                        ->where('challenge_id', $challenge->id)
+                        ->where('challenge_id', $this->id)
                         ->count();
         if($days_completed == $daysToComplete) {
             $user->pivot->completed = 1;
