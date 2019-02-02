@@ -38,13 +38,17 @@ class Challenge extends Model
 
     public function CheckIn()
     {
-
         $starts_at = Carbon::parse($this->starts_at);
         $ends_at = Carbon::parse($this->ends_at);
         $daysToComplete = $starts_at->diffInDays($ends_at,false)+1;
+        $today = date("Y-m-d");
 
         $user = ($this->users()
                      ->where('id',Auth::user()->id)->first());
+        $checkins = json_decode($user->checkins, true);
+        $checkins[$today]++;
+        $user->checkins = json_encode($checkins);
+        $user->save();
 
         Checkin::create([
             'user_id' => $user->id,
