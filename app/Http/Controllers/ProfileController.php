@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Challenge;
 use App\Managers\ContributionColorManager;
-use Carbon\Carbon;
-use Carbon\CarbonPeriod;
 
 class ProfileController extends Controller
 {
