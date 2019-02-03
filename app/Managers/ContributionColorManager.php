@@ -3,7 +3,6 @@
 
 namespace App\Managers;
 
-use Illuminate\Support\Facades\Cache;
 use App\Traits\HandlesContributions;
 use App\CheckIn;
 use Auth;
@@ -14,26 +13,9 @@ class ContributionColorManager
 
     public function getColorOfDate($day)
     {
-        $date = $this->getDateFromDayOfYear($day);
-        if (! Cache::has('seeded')) {
-            $userCheckins = CheckIn::where('user_id', Auth::user()->id)
-                                ->groupBy('created_at')
-                                ->selectRaw('count(*) as total, created_at')
-                                ->get();
-            foreach ($userCheckins as $userCheckin) {
-                $this->setLevelOfContribution(
-                                            $userCheckin->created_at,
-                                            $userCheckin->total
-                                    );
-            }
-            Cache::put('seeded', 1, 1000000);
-        }
-
-        if (Cache::has($date)) {
-            return Cache::get($date);
-        } else {
-            return "none";
-        }
+        $dateOfDay = $this->getDateFromDayOfYear($day);
+        $contributionsOnDay = $this->checkinsOfSignedInUser()[$dateOfDay];
+        return $this->checkinLevelAchieved($contributionsOnDay);
     }
 
     private function getDateFromDayOfYear($dayOfYear)
@@ -43,6 +25,23 @@ class ContributionColorManager
         $offset = intval(intval($dayOfYear) * 86400);
         $date = date('Y-m-d', strtotime('Jan 1, ' . date('Y')) + $offset);
         return ($date);
+    }
+
+    private function checkinsOfSignedInUser()
+    {
+        $user = Auth::user();
+        $checkins = $user->checkins;
+        $checkins = json_decode($checkins,true);
+        return $checkins;
+    }
+
+    private function checkinLevelAchieved($contributionsOnDay) {
+        if($contributionsOnDay == 0) return "none";
+        if($contributionsOnDay >= 7) return "extreme";
+        if($contributionsOnDay >= 5) return "high";
+        if($contributionsOnDay >= 3) return "medium";
+        if($contributionsOnDay >= 1) return "low";
+
     }
 
 }

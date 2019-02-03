@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Challenge;
 use App\Managers\ContributionColorManager;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 class ProfileController extends Controller
 {
@@ -22,6 +24,11 @@ class ProfileController extends Controller
         if (!Auth::check()) {
             return redirect()->route('login');
         }
+
+        $user = Auth::user();
+        $checkins = $user->checkins;
+        $checkins = json_decode($checkins,true);
+
 
         $completedChallengeCount = Auth::user()->challenges()
                                 ->where('completed', true)
@@ -41,6 +48,7 @@ class ProfileController extends Controller
             'failedChallengeCount' => $failedChallengeCount,
             'activeChallengeCount' => $activeChallengeCount,
             'contributionManager' => $this->manager,
+            'checkins' => $checkins,
             ]);
     }
 
