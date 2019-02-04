@@ -56,6 +56,7 @@
     <div class="px-8">
         @for($week = 0; $week <7; $week++)
         <div class="flex pt-px">
+        <p class ="pr-2">{{ ($week+1) % 7  }}</p>
             @for($day = 0; $day < 52; $day++)
                 @include("contributions.partials.{$contributionManager->getColorOfDate($week + ($day*7))}")
             @endfor
