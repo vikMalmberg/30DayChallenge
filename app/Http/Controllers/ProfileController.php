@@ -26,7 +26,15 @@ class ProfileController extends Controller
         $user = Auth::user();
         $checkins = $user->checkins;
         $checkins = json_decode($checkins,true);
-
+        $dayOfWeek = [
+          'Mon',
+          'Tue',
+          'Wed',
+          'Thu',
+          'Fri',
+          'Sat',
+          'Sun'
+        ];
 
         $completedChallengeCount = Auth::user()->challenges()
                                 ->where('completed', true)
@@ -47,6 +55,7 @@ class ProfileController extends Controller
             'activeChallengeCount' => $activeChallengeCount,
             'contributionManager' => $this->manager,
             'checkins' => $checkins,
+            'dayOfWeek' => $dayOfWeek
             ]);
     }
 
