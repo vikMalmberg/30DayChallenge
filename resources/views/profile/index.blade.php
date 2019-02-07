@@ -53,6 +53,14 @@
 </div>
 
 <div class="bg-red py-6 container w-2/5 mx-auto rounded-lg shadow-lg mt-16 font-hairline font-sans">
+    <div class="pl-24 pr-12">
+        <div class="flex justify-between">
+            <p>Jan</p>
+            <p>April</p>
+            <p>Aug</p>
+            <p>Dec</p>
+        </div>
+    </div>
     <div class="px-8">
         @for($week = 0; $week <7; $week++)
         <div class="flex pt-px">
