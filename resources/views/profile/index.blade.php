@@ -43,7 +43,9 @@
             <div class="flex">
                 <i class="w-16 fas fa-clipboard-list text-4xl text-teal"></i>
                 <div class="flex text-center mr-4 w-full">
-                        <h2 class=" pl-12 font-hairline text-grey-dark">Active :</h2>
+                        <a  class ="no-underline" href="{{ route('personal.challenges.index') }}">
+                            <h2 class=" pl-12 font-hairline text-grey-dark">Active :</h2>
+                        </a>
                         <h2 class="pl-4 font-normal">{{ $activeChallengeCount }}</h2>
                 </div>
             </div>
