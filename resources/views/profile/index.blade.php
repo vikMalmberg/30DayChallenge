@@ -54,7 +54,7 @@
 </div>
 </div>
 
-<div class="bg-red py-6 container w-2/5 mx-auto rounded-lg shadow-lg mt-16 font-hairline font-sans">
+<div class="bg-grey-light py-6 container w-2/5 mx-auto rounded-lg shadow-lg mt-16 font-hairline font-sans">
     <div class="pl-24 pr-12">
         <div class="flex justify-between">
             <p>Jan</p>
@@ -63,7 +63,7 @@
             <p>Dec</p>
         </div>
     </div>
-    <div class="px-8">
+    <div class="px-4">
         @for($week = 0; $week <7; $week++)
         <div class="flex pt-px">
             <p class="w-12">{{ $dayOfWeek[($week+1) % 7]  }}
