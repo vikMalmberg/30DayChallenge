@@ -66,7 +66,7 @@
                 required  >
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-blue hover:bg-blue-dark
+          <button class="bg-teal-dark hover:bg-blue-dark
                          text-white font-bold py-2 px-4 rounded
                          focus:outline-none focus:shadow-outline" type="submit">
             Sign Up
