@@ -35,22 +35,22 @@
 <div class="container  w-4/5 mx-auto border-teal rounded-lg shadow-lg">
     <div class="topbar w-full ">
         <div class="flex justify-around bg-grey-light rounded-t-lg">
-            <div class="w-48 pt-2  h-10 text-grey-dark font-sans text-grey-darkest font-medium">NAME</div>
-            <div class="w-48 pt-2  h-10 text-grey-dark font-sans text-grey-darkest font-medium">DURATION</div>
-            <div class="w-48 pt-2  h-10 text-grey-dark font-sans text-grey-darkest font-medium">START</div>
-            <div class="w-48 pt-2  h-10 text-grey-dark font-sans text-grey-darkest font-medium">DAYS</div>
-            <div class="text-center w-32 pt-2 h-10 text-grey-dark font-sans text-grey-darkest font-medium">STATUS</div>
+            <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">NAME</div>
+            <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">DURATION</div>
+            <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">START</div>
+            <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">DAYS</div>
+            <div class="text-center w-8 lg:w-32 lg:text-base pt-2 text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">STATUS</div>
 
         </div>
 
         @foreach($challenges as $challenge)
             <div class=" hover:bg-grey pb-16 h-12 flex justify-around border-t-2">
                 <a href="/challenges/{{ $challenge->id }}" class ="no-underline text-teal-dark font-bold">
-                    <div class="w-48 pt-6 pb-6 ">{{ $challenge->name }}</div>
+                    <div class="text-xs lg:text-base w-12 lg:w-48 pt-6 pb-6 ">{{ $challenge->name }}</div>
                 </a>
-                <div class="w-48 pt-6 pb-6 ">{{ $challenge->duration() }} days</div>
-                <div class="w-48 pt-6 pb-6 ">{{ $challenge->starts_at }}</div>
-                <div class="w-48 pt-6 pb-6">
+                <div class="text-xs lg:text-base w-12 lg:w-48 pt-6 pb-6 ">{{ $challenge->duration() }} days</div>
+                <div class="text-xs lg:text-base w-12 lg:w-48 pt-6 pb-6 ">{{ $challenge->starts_at }}</div>
+                <div class="text-xs lg:text-base w-12 lg:w-48 pt-6 pb-6">
                     @foreach($challenge->WeekdaysToCheckIn() as $weekday)
                         <span>{{ $weekday}}</span>
                     @endforeach

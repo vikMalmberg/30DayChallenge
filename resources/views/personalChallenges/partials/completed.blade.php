@@ -6,7 +6,8 @@
                 py-2
                 mt-4
                 rounded-full
-                w-32">
+                w-12
+                lg:w-32">
         Completed
      </button>
 </div>

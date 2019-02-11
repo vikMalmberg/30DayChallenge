@@ -11,7 +11,8 @@
                         focus:outline-none
                         mt-4
                         rounded-full
-                        w-32">
+                        w-16
+                        lg:w-32">
                 Check in
              </button>
          </a>
