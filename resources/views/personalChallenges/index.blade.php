@@ -39,7 +39,7 @@
             <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">DURATION</div>
             <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">START</div>
             <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">DAYS</div>
-            <div class="text-center w-8 lg:w-32 lg:text-base pt-2 text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">STATUS</div>
+            <div class="text-center w-32 pt-2 h-10 text-grey-dark font-sans text-grey-darkest font-medium">STATUS</div>
 
         </div>
 

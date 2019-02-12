@@ -12,7 +12,8 @@
                         mt-4
                         focus:outline-none
                         rounded-full
-                        w-32
+                        w-12
+                        lg:w-32
          ">Sign up</button>
      <input hidden type="text" name="challenge_id" value={{ $challenge->id }}>
      </form>
