@@ -2,7 +2,7 @@
 <div>
     <body class ="bg-grey-lighter h-screen font-sans">
         <div class="container mx-auto h-80 flex justify-center items-center">
-            <div class="w-2/5">
+            <div class=" w-4/5 lg:w-2/5">
                 <h1 class="font-hairline mb-6 text-center font-sans">Create a challenge</h1>
                 <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
                     <div class="mb-4">
