@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if ($errors->any())
-  <div class="w-1/2 mx-auto h-80  justify-center items-center">
+  <div class="w-5/6 lg:w-1/2 mx-auto h-80  justify-center items-center">
       @foreach ($errors->all() as $error)
         <error-component :errormsg="'{{$error}}'"></error-component>
       @endforeach
