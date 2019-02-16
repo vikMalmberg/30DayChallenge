@@ -7,6 +7,8 @@
                     mt-4
                     rounded-full
                     w-12
+                    text-xs
+                    lg:text-base
                     lg:w-32"
             type = "button">
          Active

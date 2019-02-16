@@ -13,6 +13,8 @@
                         focus:outline-none
                         rounded-full
                         w-12
+                        text-xs
+                        lg:text-base
                         lg:w-32
          ">Sign up</button>
      <input hidden type="text" name="challenge_id" value={{ $challenge->id }}>
