@@ -32,7 +32,7 @@
 @else
 
 <h1 class="font-hairline mb-6 text-center font-sans">My Challenges</h1>
-<div class="container  w-4/5 mx-auto border-teal rounded-lg shadow-lg">
+<div class="container mb-8 w-4/5 mx-auto border-teal rounded-lg shadow-lg">
     <div class="topbar w-full ">
         <div class="flex justify-around bg-grey-light rounded-t-lg">
             <div class="w-12 lg:w-48 pt-2  lg:text-base text-xs h-10 text-grey-dark font-sans text-grey-darkest font-medium">NAME</div>
