@@ -67,6 +67,20 @@
                      <input hidden type="text" name="challenge_id" value={{ $challenge->id }}>
                      </form>
                 </div>
+                @else
+                <div>
+                    <form
+                    action="{{ route('personal.challenges.destroy', $challenge->id)}}"
+                    method="POST"
+                    >
+                    @csrf
+                         <button class="bg-red-dark hover:bg-red
+                                        text-white font-bold
+                                        py-2 px-4 mt-4 rounded
+                         ">Quit</button>
+                     <input hidden type="text" name="challenge_id" value={{ $challenge->id }}>
+                     </form>
+                </div>
                 @endif
             </div>
         </div>

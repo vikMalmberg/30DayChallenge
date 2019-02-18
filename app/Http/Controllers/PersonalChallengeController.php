@@ -49,4 +49,12 @@ class PersonalChallengeController extends Controller
         return redirect()->route('personal.challenges.index')->with('message', 'Successfully checked in');
     }
 
+    public function destroy(Challenge $challenge)
+    {
+        $challenge->users()->where('user_id',Auth::user()->id)->detach();
+
+        return redirect()->route('personal.challenges.index');
+    }
+
+
 }
